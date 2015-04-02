@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:orientation="vertical"
+    tools:context=".MainActivityWear" tools:deviceIds="wear_square">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start/Stop"
+        android:id="@+id/btnStartStop"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/tvPushUps"
+        android:hint="# Push-Ups"
+        android:textSize="15sp"
+        android:layout_alignBaseline="@+id/btnMinusPU"
+        android:layout_alignBottom="@+id/btnMinusPU"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="--"
+        android:id="@+id/btnMinusPU"
+        android:layout_marginLeft="0dp"
+        android:layout_below="@+id/btnStartStop"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:id="@+id/btnPlusPU"
+        android:layout_below="@+id/btnStartStop"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:hint="Interval (sec)"
+        android:id="@+id/tvInterval"
+        android:textSize="15sp"
+        android:layout_alignBaseline="@+id/btnMinusInt"
+        android:layout_alignBottom="@+id/btnMinusInt"
+        android:layout_toEndOf="@+id/btnMinusInt"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="--"
+        android:id="@+id/btnMinusInt"
+        android:layout_below="@+id/btnMinusPU"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:id="@+id/btnPlusInt"
+        android:layout_alignTop="@+id/btnMinusInt"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/btnPlusPU" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:hint="Rest Time (sec)"
+        android:id="@+id/tvRestTime"
+        android:textSize="12sp"
+        android:layout_alignBaseline="@+id/btnMinusRestTime"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="--"
+        android:id="@+id/btnMinusRestTime"
+        android:layout_below="@+id/btnMinusInt"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/btnMinusInt" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:id="@+id/btnPlusRestTime"
+        android:layout_below="@+id/btnPlusInt"
+        android:layout_alignStart="@+id/btnPlusInt" />
+
+</RelativeLayout>
