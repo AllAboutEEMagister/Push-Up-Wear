@@ -9,7 +9,7 @@ import java.util.TimerTask;
 /**
  * Created by Yovanni on 4/2/2015.
  */
-public class UpdateNotificationTimerTask extends TimerTask
+public class MyTimerTask extends TimerTask
 {
     final int NOTIFICATION_ID = 1;
     private NotificationManager nm;
@@ -20,16 +20,9 @@ public class UpdateNotificationTimerTask extends TimerTask
     @Override
     public void run()
     {
-        NotificationCreator();
-
-    }
-
-    public void NotificationCreator()
-    {
-        notification.setVibrate(new long[] {3000, 1000, intervalNumber*1000, 3000});
-//        nm = (NotificationManager) ctxt.getSystemService(Context.NOTIFICATION_SERVICE);
-//        nm.notify(NOTIFICATION_ID, notification.build());
-
+        notification.setVibrate(new long[] {0, 1000, 3000, 1000});
+        nm = (NotificationManager) ctxt.getSystemService(Context.NOTIFICATION_SERVICE);
+        nm.notify(NOTIFICATION_ID, notification.build());
     }
 
     public void setIntervalNumber(int intervalNumber)
@@ -45,5 +38,4 @@ public class UpdateNotificationTimerTask extends TimerTask
     {
         this.ctxt = ctxt;
     }
-
 }

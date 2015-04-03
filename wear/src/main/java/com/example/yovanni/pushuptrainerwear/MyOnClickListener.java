@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import java.util.Timer;
-import java.util.TimerTask;
 
 /**
  * Created by Yovanni on 4/1/2015.
@@ -20,17 +19,13 @@ import java.util.TimerTask;
 public class MyOnClickListener implements View.OnClickListener
 {
     private Timer timer = new Timer();
+    private MyTimerTask myTimerTask = new MyTimerTask();
+
     Context ctxt;
     private TextView pushUpNumberTV, intervalNumberTV, restTimeTV;
     static int pushUpNumber = 0;
     static int intervalNumber = 0;
     static int restTimeNumber = 0;
-
-
-    public MyOnClickListener()
-    {
-
-    }
 
     public MyOnClickListener(Context ctxt)
     {
@@ -73,17 +68,16 @@ public class MyOnClickListener implements View.OnClickListener
                         .setSmallIcon(R.mipmap.ic_launcher)
                         .setAutoCancel(true);
 
-                UpdateNotificationTimerTask untt = new UpdateNotificationTimerTask();
+                myTimerTask.setContext(getContext());
+                myTimerTask.setIntervalNumber(intervalNumber);
+                myTimerTask.setNotification(notification);
 
-                untt.NotificationBuilder(notification, intervalNumber);
-
-//                timer.schedule(new UpdateNotificationTimerTask(), 0, intervalNumber*1000);
-
-//                notification.setVibrate(new long[] {3000, 1000, intervalNumber*1000});
-
-
-                NotificationManager nm = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
-                nm.notify(NOTIFICATION_ID, notification.build());
+                timer.schedule(myTimerTask, 0, 3000);
+//                notification.setVibrate(new long[] {0, 1000, intervalNumber*1000, 1000, intervalNumber*1000, 3000});
+//
+//
+//                NotificationManager nm = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
+//                nm.notify(NOTIFICATION_ID, notification.build());
                 break;
             case R.id.btnMinusPU:
 
